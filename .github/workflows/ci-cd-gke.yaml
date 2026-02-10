@@ -30,6 +30,13 @@ jobs:
     - name: Build Image
       run: |
         docker buildx build --tag gcr.io/devops-gke-task/${{ env.IMAGE_NAME }}:latest .
+
+    - name: Trivy Scan
+      uses: aquasecurity/trivy-action@0.20.0
+      with:
+        image-ref: gcr.io/${{ env.PROJECT_ID }}/{{ env.IMAGE_NAME }}:latest
+        severity: HIGH,CRITICAL
+        exit-code: 1
         
     - name: Push Image
       run: |
