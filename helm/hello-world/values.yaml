@@ -1,1 +1,10 @@
+replicaCount: 2
 
+image:
+  repository: gcr.io/PROJECT_ID/hello-world
+  tag: latest
+
+service:
+  type: LoadBalancer
+  port: 80
+  targetPort: 3000
