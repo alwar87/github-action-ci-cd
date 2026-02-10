@@ -34,7 +34,7 @@ jobs:
     - name: Trivy Scan
       uses: aquasecurity/trivy-action@0.20.0
       with:
-        image-ref: gcr.io/${{ env.PROJECT_ID }}/{{ env.IMAGE_NAME }}:latest
+        image-ref: gcr.io/devops-gke-task/hello-world:latest
         severity: HIGH,CRITICAL
         exit-code: 1
         
