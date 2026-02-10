@@ -5,7 +5,7 @@ on:
     branches: [ main ]
 
 env:
-  PROJECT_ID: ${{ secrets.GCP_PROJECT_ID }}
+  PROJECT_ID: devops-gke-task
   IMAGE_NAME: hello-world
   GKE_CLUSTER: primary-gke
   GKE_REGION: us-central1
@@ -37,7 +37,7 @@ jobs:
         image-ref: gcr.io/devops-gke-task/hello-world:latest
         severity: HIGH,CRITICAL
         exit-code: 0
-        
+      
     - name: Push Image
       run: |
         docker push gcr.io/devops-gke-task/${{ env.IMAGE_NAME }}:latest 
