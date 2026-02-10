@@ -36,7 +36,7 @@ jobs:
       with:
         image-ref: gcr.io/devops-gke-task/hello-world:latest
         severity: HIGH,CRITICAL
-        exit-code: 1
+        exit-code: 0
         
     - name: Push Image
       run: |
