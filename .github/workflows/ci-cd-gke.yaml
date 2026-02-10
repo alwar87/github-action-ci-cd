@@ -29,8 +29,8 @@ jobs:
 
     - name: Build Image
       run: |
-        docker build -t gcr.io/${{ env.PROJECT_ID }}/${{ env.IMAGE_NAME }}:latest .
-
+        docker buildx build --tag gcr.io/${{ env.PROJECT_ID }}/${{ env.IMAGE_NAME }}:latest .
+        
     - name: Trivy Scan
       uses: aquasecurity/trivy-action@0.20.0
       with:
