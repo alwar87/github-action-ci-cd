@@ -33,7 +33,7 @@ jobs:
         
     - name: Push Image
       run: |
-        docker push gcr.io/devops-gke-task/$ {{ env.IMAGE_NAME }}:latest 
+        docker push gcr.io/devops-gke-task/${{ env.IMAGE_NAME }}:latest 
 
     - uses: google-github-actions/get-gke-credentials@v2
       with:
