@@ -1,9 +1,12 @@
-resource "google_container_cluster" "primary" {
-  name     = "primary-gke"
-  location = var.region
+resource "google_container_cluster" "gke" {
+  name     = "gav1st-gke"          # Must match GKE_CLUSTER in workflow
+  location = "us-central1"         # Must match GKE_REGION in workflow
 
   remove_default_node_pool = true
   initial_node_count       = 1
+
+  network    = var.network
+  subnetwork = var.subnetwork
 
   addons_config {
     http_load_balancing {
@@ -17,14 +20,16 @@ resource "google_container_cluster" "primary" {
     }
   }
 
-  network    = var.network
-  subnetwork = var.subnetwork
+  release_channel {
+    channel = "REGULAR"
+  }
 }
 
-resource "google_container_node_pool" "primary_nodes" {
-  name       = "primary-node-pool"
-  location   = var.region
-  cluster    = google_container_cluster.primary.name
+resource "google_container_node_pool" "gke_nodes" {
+  name     = "gav1st-node-pool"
+  location = "us-central1"                     # Must match cluster location
+  cluster  = google_container_cluster.gke.name
+
   node_count = 2
 
   node_config {
@@ -33,6 +38,14 @@ resource "google_container_node_pool" "primary_nodes" {
     oauth_scopes = [
       "https://www.googleapis.com/auth/cloud-platform"
     ]
+
+    labels = {
+      env = "dev"
+    }
+  }
+
+  management {
+    auto_repair  = true
+    auto_upgrade = true
   }
 }
-
