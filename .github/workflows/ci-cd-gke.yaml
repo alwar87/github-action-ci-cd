@@ -10,7 +10,7 @@ env:
   REPO_NAME: hello-world-repo
   IMAGE_NAME: hello-world
   GKE_CLUSTER: primary-gke
-  GKE_REGION: us-central1-a
+  GKE_REGION: us-central1
 
 jobs:
   deploy:
