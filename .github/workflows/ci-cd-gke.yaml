@@ -9,7 +9,7 @@ env:
   REGION: us-central1
   REPO_NAME: hello-world-repo
   IMAGE_NAME: hello-world
-  GKE_CLUSTER: gav1st-gke
+  GKE_CLUSTER: gavtst-gke-cluster
   GKE_REGION: us-central1
 
 jobs:
@@ -55,7 +55,7 @@ jobs:
     - name: Get GKE Credentials
       uses: google-github-actions/get-gke-credentials@v2
       with:
-        cluster_name: gav1st-gke
+        cluster_name: gavtst-gke-cluster
         location: us-central1-a
         project_id: devops-gke-task
 
