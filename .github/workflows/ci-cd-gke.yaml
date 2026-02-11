@@ -13,7 +13,7 @@ env:
   # ⚠️ CRITICAL FIX: Change to your ACTUAL cluster location (likely zonal)
   # Run: gcloud container clusters list --project devops-gke-task
   # Example values: us-central1-c (zonal) OR us-central1 (regional)
-  GKE_LOCATION: us-central1-c  # ← MUST MATCH YOUR CLUSTER'S ACTUAL LOCATION
+  GKE_LOCATION: us-central1 # ← MUST MATCH YOUR CLUSTER'S ACTUAL LOCATION
 
 jobs:
   deploy:
