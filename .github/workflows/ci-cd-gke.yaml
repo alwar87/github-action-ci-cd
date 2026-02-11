@@ -56,8 +56,8 @@ jobs:
       uses: google-github-actions/get-gke-credentials@v2
       with:
         cluster_name: gav1st-gke
-        location: us-central1
-        project_id: '${{ env.PROJECT_ID }}'
+        location: us-central1-a
+        project_id: devops-gke-task
 
     - name: Setup Helm
       uses: azure/setup-helm@v4
