@@ -49,8 +49,9 @@ jobs:
 
     - uses: google-github-actions/get-gke-credentials@v2
       with:
-        cluster_name: ${{ env.GKE_CLUSTER }}
-        location: ${{ env.GKE_REGION }}
+        cluster_name: '${{ env.GKE_CLUSTER }}'
+        location: '${{ env.GKE_REGION }}'
+        project_id: '${{ env.PROJECT_ID }}'
 
     - uses: azure/setup-helm@v4
 
