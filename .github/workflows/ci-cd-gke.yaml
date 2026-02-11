@@ -9,7 +9,7 @@ env:
   REGION: us-central1
   REPO_NAME: hello-world-repo
   IMAGE_NAME: hello-world
-  GKE_CLUSTER: gavclu-gke
+  GKE_CLUSTER: gavclu-gke-1
   GKE_REGION: us-central1
 
 jobs:
